@@ -68,7 +68,6 @@ html {
 
       &:hover {
         background-color: rgba(245, 197, 6, 1.00);
-
       }
     }
   }
@@ -131,8 +130,6 @@ html {
         }
       }
 
-
-
       figure {
         height: 200px;
         margin: 0 auto;
@@ -194,7 +191,12 @@ html {
           }
         }
       }
-     
+      
+      @include transition(transform .3s);
+      &:hover {
+        cursor: pointer;
+        @include scale(1.05);
+      }
     }
   }
 }
