@@ -6,7 +6,7 @@ html body { position: relative; display: inline-block; width: 100%; margin: 0; p
 html body::-moz-selection { color: white; background-color: #78baff; }
 html body::selection { color: white; background-color: #78baff; }
 
-#main { display: inline-block; max-width: 1450px; width: 100%; }
+#main { display: inline-block; width: 100%; }
 #main .header-block { display: inline-block; width: 100%; height: 100px; padding: 0 35px; border-bottom: 1px solid #dbdbdb; *zoom: 1; }
 #main .header-block:after { display: table; content: ""; line-height: 0; clear: both; }
 @media screen and (max-width: 949px) and (min-width: 0) { #main .header-block { height: auto; padding: 0 15px; } }
