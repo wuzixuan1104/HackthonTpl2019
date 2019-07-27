@@ -1,12 +1,6 @@
-@font-face { font-family: "icon"; src: url('../font/icomoon/fonts/icomoon.eot?1555594932') format('embedded-opentype'), url('../font/icomoon/fonts/icomoon.woff?1555594932') format('woff'), url('../font/icomoon/fonts/icomoon.ttf?1555594932') format('truetype'), url('../font/icomoon/fonts/icomoon.svg?1555594932') format('svg'); }
+@font-face { font-family: "icon"; src: url('../font/icomoon/fonts/icomoon.eot?1564190182') format('embedded-opentype'), url('../font/icomoon/fonts/icomoon.woff?1564190182') format('woff'), url('../font/icomoon/fonts/icomoon.ttf?1564190182') format('truetype'), url('../font/icomoon/fonts/icomoon.svg?1564190182') format('svg'); }
 *[class^="icon-"]:before, *[class*=" icon-"]:before { font-family: "icon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; }
 
-.icon-newspaper:before { content: "\e904"; }
+.icon-location:before { content: "\e901"; }
 
-.icon-file-text2:before { content: "\e926"; }
-
-.icon-bubble:before { content: "\e96b"; }
-
-.icon-bubbles2:before { content: "\e96d"; }
-
-.icon-bubble2:before { content: "\e96e"; }
+.icon-search:before { content: "\e900"; }

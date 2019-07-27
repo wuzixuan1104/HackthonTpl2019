@@ -24,72 +24,186 @@ html {
     font-size: medium;
     font-family: "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
     
+    background-color: rgba(237, 237, 237, 1.00);
     // 文字染色，背景色、文字色
     @include selection(rgba(120, 186, 255, 1.00), rgba(255, 255, 255, 1));
   }
 }
 
-#richmenu {
-  margin-top: 50px;
+#main {
   display: inline-block;
-  width: 833px;
-  height: 281px;
-  // background-color: #3faed0;
-  background-color: #3faed0;
+  max-width: 1450px;
+  width: 100%;
+  min-height: 100%;
+  @include clearfix();
 
   > * {
     display: inline-block;
-    width: calc(100% / 2);
-    height: 100%;
+    width: 50%;
     float: left;
-    padding-top: 120px;
-    font-size: 30px;
-
-    &:before {
-      // display: block;
-
-      margin-bottom: 15px;
-      margin-right: 30px;
-      font-size: 80px;
-    }
   }
 
-  div {
-    color: white;
-    font-size: 40px;
-    line-height: 30px;
-    &:first-child {
-      // background-color: #ea7a7a;
-      position: relative;
-      &:before {
-        color: white;
-      }
+  .left-block {
+    display: inline-block;
+    background-color: white;
+    padding-bottom: 30px;
 
-      &:after {
-        position: absolute;
-        top: 55px;
-        right: 0;
-        content: '';
+    > * {
+      display: inline-block;
+      width: 100%;
+    }
+    .header-block {
+      height: 100px;
+      padding: 0 35px;
+      border-bottom: 1px solid rgba(219, 219, 219, 1.00);
+      @include clearfix();
+
+      > * {
         display: inline-block;
-        width: 2px;
-        height: 60%;
-        background-color: #aae4ff;
+        float: left;
+        height: 100%;
+      }
+
+      h1 {
+        width: 160px;
+        margin: 0 auto;
+        font-size: 20px;
+        color: rgba(31, 32, 32, 1.00);
+        text-align: left;
+        line-height: 100px;
+
+        .logo {
+          font-size: 48px;
+          line-height: 100px;
+          margin-right: 5px;
+        }
+      }
+
+      .search-block {
+        width: calc(100% - 160px);
+
+        .search-input {
+          display: inline-block;
+          width: 100%;
+          height: 60px;
+          float: left;
+          text-align: left;
+          background-color: rgba(232, 232, 232, 1.00);
+          margin-top: calc(50px - 30px);
+
+          @include border-radius(5px);
+
+          &:before {
+            display: inline-block;
+            width: 60px;
+            line-height: 60px;
+            font-size: 18px;
+            text-align: center;
+            color: rgba(123, 123, 123, 1.00);
+          }
+
+          input[type="text"] {
+            display: inline-block;
+            width: calc(100% - 60px - 20px);
+
+            margin-top: 15px;
+            background-color: transparent;
+            outline: none;
+            @include input(transparent, 30px);
+            border: none;
+
+            @include input-placeholder {
+              font-weight: normal;
+              color: rgba(123, 123, 123, 1.00);
+              font-size: 15px;
+            }
+            &:focus {
+              border: none;
+              @include box-shadow(none);
+            }
+            @include transition(none);
+
+            padding: 0;
+          }
+        }
       }
     }
 
-    &:last-child {
-      &:before {
-        color: white;
+    main {
+      padding: 0 35px;
+
+      > * {
+        display: inline-block;
+        width: 100%;
+      }
+      .intro-block {
+        position: relative;
+        margin-top: 40px;
+        padding: 25px;
+        border: 1px solid rgba(219, 219, 219, 1.00);
+        @include border-radius(10px);
+
+        > * {
+          text-align: left;
+          color: rgba(31, 32, 32, 1.00);
+        }
+
+        h2 {
+          display: inline-block;
+          width: 100%;
+          margin: 0 auto;
+          font-size: 20px;
+        }
+        .temperature {
+          display: inline-block;
+          width: 100%;
+          margin-top: 5px;
+          font-size: 35px;
+        }
+
+        label.info {
+          position: absolute;
+          right: 30px;
+          bottom: 30px;
+          @include clearfix();
+
+          > * {
+            display: inline-block;
+            float: left;
+            color: rgba(105, 105, 105, 1.00);
+          }
+
+          .rain {
+            &:before {
+              content: '降雨機率';
+              display: block;
+              color: rgba(133, 133, 133, 1.00);
+              font-size: 12px;
+              margin-bottom: 5px;
+            }
+          }
+
+          .feel {
+            &:before {
+              content: '體感溫度';
+              display: block;
+              color: rgba(133, 133, 133, 1.00);
+              font-size: 12px;
+              margin-bottom: 5px;
+            }
+            margin-left: 25px;
+          }
+        }
+      }
+
+      .area-block {
+
       }
     }
-
-
   }
-
-
-
-
 }
+
+
 
 
 
