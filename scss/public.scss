@@ -47,7 +47,7 @@ html {
     background-color: white;
     padding-bottom: 30px;
     min-height: 1000px;
-
+    @include box-shadow(0px 1px 5px 1px rgba(2, 1, 1, 0.15));
     > * {
       display: inline-block;
       width: 100%;
@@ -83,6 +83,7 @@ html {
         width: calc(100% - 160px);
 
         .search-input {
+          position: relative;
           display: inline-block;
           width: 100%;
           height: 60px;
@@ -102,10 +103,11 @@ html {
             color: rgba(123, 123, 123, 1.00);
           }
 
-          input[type="text"] {
+          > * {
             display: inline-block;
             width: calc(100% - 60px - 20px);
-
+          }
+          input[type="text"] {
             margin-top: 15px;
             background-color: transparent;
             outline: none;
@@ -125,12 +127,73 @@ html {
 
             padding: 0;
           }
+
+          .tag-list {
+            width: 100%;
+            position: absolute;
+            display: none;
+            padding: 6px;
+            top: calc(100% - 1px);
+            left: 0;
+            background-color: rgba(250, 250, 250, 1.00);
+            z-index: 5;
+            @include box-shadow(1px 2px 7px 0px rgba(158, 158, 158, 0.83));
+            @include border-radius(5px);
+            @include clearfix();
+            > * {
+              display: inline-block;
+              float: left;
+            }
+            &:empty {
+              &:before {
+                content: '啊喔！找不到任何關鍵字...';
+                display: inline-block;
+                color: rgb(150, 150, 150);
+                padding: 8px;
+                font-size: 12px;
+              }
+            }
+            a {
+              margin: 5px;
+              text-decoration: none;
+              padding: 5px 10px;
+              width: auto;
+              min-width: 100px;
+              border: 1px solid rgba(232, 232, 232, 1.00);
+              background-color: white;
+              color: rgba(82, 82, 82, 1.00);
+              font-size: 12px;
+              text-align: center;
+              @include border-radius(5px);
+              &:before {
+                display: inline-block;
+                content: '#';
+                line-height: 17px;
+                margin-right: 2px;
+              }
+
+              &:hover {
+                background-color: rgba(245, 197, 6, 1.00);
+
+              }
+            }
+          }
+
+          &:hover {
+            background-color: rgba(250, 250, 250, 1.00);
+            @include box-shadow(0 0 7px rgb(206, 206, 206));
+            .tag-list {
+              display: inline-block;
+            }
+          }
         }
+
+        
       }
     }
 
     main {
-      padding: 0 35px;
+      // padding: 0 35px;
 
       > * {
         display: inline-block;
@@ -138,6 +201,7 @@ html {
       }
       .intro-block {
         position: relative;
+        width: calc(100% - 70px);
         margin-top: 40px;
         padding: 25px;
         border: 1px solid rgba(219, 219, 219, 1.00);
@@ -196,8 +260,482 @@ html {
         }
       }
 
-      .area-block {
+      $mh: 200px;
+      $nh: 180px;
 
+      .area-block {
+        width: calc(100% - 50px);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+
+        section {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          overflow-y: scroll;
+
+          @include clearfix();
+          @include range-width(0, 630px) {
+            padding: 5px;
+          }
+
+          a {
+            position: relative;
+            float: left;
+            @include box-shadow(0 0 1px rgba(0, 0, 0, .80));
+            @include border-radius(10px);
+            @include transition(box-shadow .3s);
+            overflow: hidden;
+
+            &:hover {
+              figcaption {
+                background-color: rgba(0, 0, 0, .25);
+                &:after {
+                  display: inline-block;
+                  @include opacity(1);
+                  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false) !important;
+                  opacity: 1 !important;
+                  bottom: 0px;
+                }
+                &:before {
+                  display: inline-block;
+                }
+              }
+              figure {
+                &:before {
+                  display: inline-block;
+                }
+                &:after {
+                  display: inline-block;
+                }
+              }
+              @include box-shadow(0 0 1px rgba(0, 0, 0, .80), 0 0 10px rgba(0, 0, 0, .15));
+            }
+
+            figure {
+              position: relative;
+              margin: 0;
+              display: inline-block;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              @include border-radius(2px);
+
+              figcaption, &:before, &:after {
+                position: absolute;
+                width: 100%;
+                left: 41px;
+                display: inline-block;
+                padding: 5px;
+                color: rgba(255, 255, 255, 1.00);
+                font-size: 12px;
+                height: 28px;
+                line-height: 28px - 2px;
+                z-index: 2;
+                text-align: left;
+                @include overflow-docx3();
+                @include text-shadow(0 0 1px rgba(0, 0, 0, .30));
+              }
+              &:before {
+                display: none;
+                content: attr(data-describe)' • 'attr(data-temperature) '°c';
+                bottom: 23px;
+              }
+              &:after {
+                display: none;
+                content: '濕 ' attr(data-humidity) '% • 雨 ' attr(data-rainfall) 'mm';
+                bottom: 5px;
+              }
+
+              img {
+                width: 100%;
+              }
+
+              figcaption {
+                top: 0;
+                left: 0;
+                bottom: auto;
+                height: 100%;
+                padding: 5px;
+                padding-right: 10px;
+                z-index: 1;
+                // background-color: rgba(0, 0, 0, .35);
+                text-align: right;
+                font-size: 18px;
+                @include border-radius(2px);
+                @include transition(background-color .3s);
+
+                &:before {
+                  position: absolute;
+                  left: 4px;
+                  bottom: 5px;
+                  // display: inline-block;
+                  display: none;
+                  width: 40px;
+                  height: 40px;
+                  line-height: 42px;
+                  font-size: 33px;
+                  text-align: center;
+                  z-index: 5;
+                  // background-color: rgba(0, 0, 255, 0.2);
+                }
+
+                &:after {
+                  position: absolute;
+                  left: 0;
+                  bottom: -50px;
+                  content: '';
+                  display: none;
+                  width: 100%;
+                  height: 50px;
+                  background-color: rgba(41, 41, 41, 0.74);
+
+                  @include opacity(0);
+                  @include transition(bottom .3s, opacity .3s);
+                }
+              }
+
+
+            }
+            @include range-width(0, 529px) {
+              width: calc(100% / 1 - 5px * 2);
+              height: #{$nh};
+              margin: 5px;
+            }
+            @include range-width(530px, 629px) {
+              width: calc(100% / 2 - 5px * 2);
+              height: #{$nh};
+              margin: 5px;
+              &:nth-child(4n + 1) {
+                height: ($nh + 5px) * 2;
+              }
+              &:nth-child(4n + 4) {
+                width: calc(100% - 5px * 2);
+              }
+              &:nth-child(37) {
+                width: calc(100% / 2 - 5px * 2);
+                height: #{$nh};
+              }
+            }
+            // @include range-width(630px, 829px) {
+            @include range-width(630px) {
+              width: calc(100% / 2 - 10px * 2);
+              height: #{$nh};
+              &:nth-child(4n + 1) {
+                height: ($nh + 10px) * 2;
+              }
+              &:nth-child(4n + 4) {
+                width: calc(100% - 10px * 2);
+              }
+              &:nth-child(37) {
+                width: calc(100% / 2 - 10px * 2);
+                height: #{$nh};
+              }
+              margin: 10px;
+            }
+            // @include range-width(830px, 1099px) {
+            //   width: calc(100% / 3 - 10px * 2);
+            //   height: #{$nh};
+            //   &:nth-child(-n+2), &:nth-child(7), &:nth-child(8) {
+            //     width: calc(100% / 2 - 10px * 2);
+            //     height: $mh;
+            //   }
+            //   &:nth-child(3), &:nth-child(13), &:nth-child(25), &:nth-child(35) {
+            //     height: ($nh + 10px) * 2;
+            //   }
+            //   &:nth-child(6), &:nth-child(9), &:nth-child(12), &:nth-child(18), &:nth-child(21), &:nth-child(30), &:nth-child(36) {
+            //     width: calc((100% / 3 - 10px) * 2);
+            //   }
+            //   margin: 10px;
+            // }
+            // @include range-width(1100px) {
+            //   width: calc(100% / 5 - 10px * 2);
+            //   height: $mh;
+            //   margin: 10px;
+            //   &:nth-child(1), &:nth-child(15), &:nth-child(30), &:nth-child(31) {
+            //     height: ($mh + 10px) * 2;
+            //   }
+            //   &:nth-child(7), &:nth-child(24) {
+            //     height: ($mh + 10px) * 2;
+            //     width: calc((100% / 5 - 10px) * 2);
+            //   }
+            //   &:nth-child(2), &:nth-child(3), &:nth-child(5), &:nth-child(9), &:nth-child(10), &:nth-child(13), &:nth-child(14), &:nth-child(17), &:nth-child(19), &:nth-child(20), &:nth-child(21), &:nth-child(22), &:nth-child(28), &:nth-child(33), &:nth-child(34), &:nth-child(36), &:nth-child(38) {
+            //     width: calc((100% / 5 - 10px) * 2);
+            //   }
+            // }
+          }
+
+          &.n37 {
+            a {
+              @include range-width(530px, 629px) {
+                &:nth-child(36) {
+                  width: calc(100% / 2 - 5px * 2);
+                }
+              }
+              @include range-width(630px, 829px) {
+                &:nth-child(36) {
+                  width: calc(100% / 2 - 10px * 2);
+                }
+              }
+              @include range-width(830px, 1099px) {
+                &:nth-child(33), &:nth-child(34) {
+                  width: calc((100% / 3 - 10px) * 2);
+                }
+                &:nth-child(35), &:nth-child(36) {
+                  width: calc(100% / 3 - 10px * 2);
+                  height: #{$nh};
+                }
+                &:nth-child(36), &:nth-child(37) {
+                  width: calc(100% / 2 - 10px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(37) {
+                  width: calc((100% / 5 - 10px) * 3 + 10px);
+                }
+              }
+            }
+          }
+          &.n33 {
+            a {
+              @include range-width(530px, 629px) {
+                &:nth-child(32), &:nth-child(33) {
+                  width: calc(100% / 2 - 5px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(630px, 829px) {
+                &:nth-child(32), &:nth-child(33) {
+                  width: calc(100% / 2 - 10px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(830px, 1099px) {
+                &:nth-child(33) {
+                  width: calc((100% / 3 - 10px) * 2);
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(30), &:nth-child(31) {
+                  height: $mh;
+                }
+              }
+            }
+          }
+          &.n29 {
+            a {
+              @include range-width(530px, 629px) {
+                &:nth-child(28), &:nth-child(29) {
+                  width: calc(100% / 2 - 5px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(630px, 829px) {
+                &:nth-child(28), &:nth-child(29) {
+                  width: calc(100% / 2 - 10px * 2);
+                  height: #{$nh};
+                }
+              }
+            }
+          }
+          &.n26 {
+            a {
+              @include range-width(530px, 829px) {
+                &:nth-child(25) {
+                  height: #{$nh};
+                }
+              }
+              @include range-width(830px, 1099px) {
+                &:nth-child(25) {
+                  height: #{$nh};
+                }
+                &:nth-child(26) {
+                  width: calc((100% / 3 - 10px) * 2);
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(24) {
+                  height: $mh;
+                }
+                &:nth-child(26) {
+                  width: calc((100% / 5 - 10px) * 2);
+                }
+              }
+            }
+          }
+          &.n20 {
+            a {
+              @include range-width(830px, 1099px) {
+                &:nth-child(18) {
+                  width: calc(100% / 3 - 10px * 2);
+                }
+              }
+            }
+          }
+          &.n18 {
+            a {
+              @include range-width(530px, 829px) {
+                &:nth-child(17) {
+                  height: #{$nh};
+                }
+              }
+              @include range-width(830px, 1099px) {
+                &:nth-child(14) {
+                  width: calc((100% / 3 - 10px) * 2);
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(15) {
+                  height: $mh;
+                }
+              }
+            }
+          }
+          &.n16 {
+            a {
+              @include range-width(830px, 1099px) {
+                &:nth-child(14) {
+                  width: calc((100% / 3 - 10px) * 2);
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(13), &:nth-child(14) {
+                  width: calc(100% / 5 - 10px * 2);
+                }
+                &:nth-child(15) {
+                  height: $mh;
+                }
+              }
+            }
+          }
+          &.n13 {
+            a {
+              @include range-width(530px, 629px) {
+                &:nth-child(12), &:nth-child(13) {
+                  width: calc(100% / 2 - 5px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(630px, 829px) {
+                &:nth-child(12), &:nth-child(13) {
+                  width: calc(100% / 2 - 10px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(830px, 1099px) {
+                &:nth-child(12), &:nth-child(13) {
+                  width: calc(100% / 3 - 10px * 2);
+                }
+                &:nth-child(13) {
+                  height: #{$nh};
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(9), &:nth-child(10), &:nth-child(13) {
+                  width: calc(100% / 5 - 10px * 2);
+                }
+              }
+            }
+          }
+          &.n12 {
+            a {
+              @include range-width(1100px) {
+                &:nth-child(10) {
+                  width: calc(100% / 5 - 10px * 2);
+                }
+              }
+            }
+          }
+          &.n7 {
+            a {
+              @include range-width(830px, 1099px) {
+                &:nth-child(6), &:nth-child(7) {
+                  width: calc(100% / 3 - 10px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(5), &:nth-child(7) {
+                  width: calc(100% / 5 - 10px * 2);
+                  height: $mh;
+                }
+              }
+            }
+          }
+          &.n6 {
+            a {
+              @include range-width(530px, 629px) {
+                &:nth-child(5) {
+                  width: calc(100% / 2 - 5px * 2);
+                  height: #{$nh};
+                }
+              }
+              @include range-width(630px, 829px) {
+                &:nth-child(5) {
+                  width: calc(100% / 2 - 10px * 2);
+                  height: #{$nh};
+                }
+              }
+            }
+          }
+          &.n4 {
+            a {
+              @include range-width(830px, 1099px) {
+                width: calc(100% / 3 - 10px * 2);
+                height: #{$nh};
+                &:nth-child(4) {
+                  width: calc(100% - 10px * 2);
+                  height: $mh;
+                }
+              }
+              @include range-width(1100px) {
+                &:nth-child(1) {
+                  width: calc((100% / 5 - 10px * 2) * 2);
+                  height: ($mh + 10px) * 2;
+                }
+                &:nth-child(3) {
+                  width: calc(100% / 5);
+                }
+                &:nth-child(4) {
+                  width: calc((100% / 5) * 3);
+                }
+              }
+            }
+          }
+          &.n3 {
+            a {
+              @include range-width(830px, 1099px) {
+                width: calc(100% / 3 - 10px * 2);
+                height: #{$nh};
+              }
+              @include range-width(1100px) {
+                height: #{$nh};
+              }
+            }
+          }
+          &.n2 {
+            a {
+              @include range-width(530px, 629px) {
+                width: calc(100% / 2 - 5px * 2);
+                height: #{$nh};
+              }
+              @include range-width(630px, 829px) {
+                width: calc(100% / 2 - 10px * 2);
+                height: #{$nh};
+              }
+              @include range-width(830px, 1099px) {
+                width: calc(100% / 2 - 10px * 2);
+                height: $mh;
+              }
+              @include range-width(1100px) {
+                width: calc(100% / 2 - 10px * 2);
+                height: $mh;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -207,9 +745,26 @@ html {
   position: fixed;
   top: 30px;
   right: 250px;
-  // right: calc(50% - #{500px / 2});
   display: inline-block;
   width: 520px;
+
+  @include range-width(1439px, 2500px) {
+    width: 450px;
+  }
+
+  @include range-width(1139px, 1440px) {
+    width: 400px;
+    right: 150px;
+  }
+  @include range-width(969px, 1140px) {
+    width: 350px;
+    right: 100px;
+  }
+  @include range-width(0px, 970px) {
+    width: 350px;
+    right: 50px;
+  }
+
   height: 100%;
   @include transition(right .3s, width .3s);
   svg {
@@ -269,10 +824,9 @@ html {
   background-color: white;
   border: 1px solid rgba(208, 208, 208, 1.00);
   padding: 30px;
-  // border-bottom: none;
+
   @include border-radius(10px);
-  // @include border-top-right-radius(10px);
-  // @include border-top-left-radius(10px);
+
   > * {
     display: inline-block;
     width: 100%;
@@ -300,16 +854,29 @@ html {
     i {
       width: 62px;
       height: 62px;
+      line-height: 22px;
+      padding-top: 12px;
       border: 1px solid rgba(219, 219, 219, 1.00);
       &:before {
-        line-height: 62px;
-        font-size: 30px;
+        display: block;
+        font-size: 25px;
         font-weight: bold;
+      }
+      &:after {
+        content: attr(data-cnt);
+        font-size: 12px;
       }
       + i {
         margin-left: 15px;
       }
 
+      &.active {
+        background-color: rgba(245, 197, 6, 1.00);
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(226, 226, 226, 1.00);
+      }
       @include border-radius(5px);
     }
   }
