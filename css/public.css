@@ -6,10 +6,10 @@ html body { position: relative; display: inline-block; width: 100%; margin: 0; p
 html body::-moz-selection { color: white; background-color: #78baff; }
 html body::selection { color: white; background-color: #78baff; }
 
-#main { display: inline-block; max-width: 1450px; width: 100%; min-height: 100%; *zoom: 1; }
+#main { display: inline-block; max-width: 1450px; width: 100%; *zoom: 1; }
 #main:after { display: table; content: ""; line-height: 0; clear: both; }
 #main > * { display: inline-block; width: 50%; float: left; }
-#main .left-block { display: inline-block; background-color: white; padding-bottom: 30px; }
+#main .left-block { display: inline-block; background-color: white; padding-bottom: 30px; min-height: 1000px; }
 #main .left-block > * { display: inline-block; width: 100%; }
 #main .left-block .header-block { height: 100px; padding: 0 35px; border-bottom: 1px solid #dbdbdb; *zoom: 1; }
 #main .left-block .header-block:after { display: table; content: ""; line-height: 0; clear: both; }
@@ -55,3 +55,25 @@ html body::selection { color: white; background-color: #78baff; }
 #main .left-block main .intro-block label.info .rain:before { content: '降雨機率'; display: block; color: #858585; font-size: 12px; margin-bottom: 5px; }
 #main .left-block main .intro-block label.info .feel { margin-left: 25px; }
 #main .left-block main .intro-block label.info .feel:before { content: '體感溫度'; display: block; color: #858585; font-size: 12px; margin-bottom: 5px; }
+
+#map { position: fixed; top: 30px; right: 250px; display: inline-block; width: 520px; height: 100%; -moz-transition: right 0.3s, width 0.3s; -o-transition: right 0.3s, width 0.3s; -webkit-transition: right 0.3s, width 0.3s; transition: right 0.3s, width 0.3s; }
+#map svg a { position: relative; display: inline-block; }
+#map svg a text.area { display: none; fill: #0203b0; }
+#map svg a path { fill: #dedede; stroke: #ededed; stroke-width: 2; }
+#map svg a:hover text.area { display: inline-block; }
+#map svg a:hover path { fill: #0203b0; }
+#map svg a .is-active path { fill: #0203b0; }
+#map svg #position { -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; stroke-linecap: round; stroke-linejoin: round; }
+#map svg #position .icon-in { animation-name: bounce; transform-origin: center bottom; animation-duration: 2s; animation-fill-mode: both; animation-iteration-count: infinite; }
+#map svg #position .icon-in path { fill: #f4c508 !important; }
+
+.emoji-block { position: fixed; bottom: 20px; right: 20px; width: 280px; background-color: white; border: 1px solid #d0d0d0; padding: 30px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+.emoji-block > * { display: inline-block; width: 100%; color: #1f2020; }
+.emoji-block h3 { margin: 0 auto; }
+.emoji-block b { font-size: 12px; margin-top: 10px; letter-spacing: 2px; }
+.emoji-block .emoji { margin-top: 30px; *zoom: 1; }
+.emoji-block .emoji:after { display: table; content: ""; line-height: 0; clear: both; }
+.emoji-block .emoji > * { display: inline-block; float: left; }
+.emoji-block .emoji i { width: 62px; height: 62px; border: 1px solid #dbdbdb; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.emoji-block .emoji i:before { line-height: 62px; font-size: 30px; font-weight: bold; }
+.emoji-block .emoji i + i { margin-left: 15px; }

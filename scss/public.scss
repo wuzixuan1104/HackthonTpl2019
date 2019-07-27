@@ -34,7 +34,6 @@ html {
   display: inline-block;
   max-width: 1450px;
   width: 100%;
-  min-height: 100%;
   @include clearfix();
 
   > * {
@@ -47,6 +46,7 @@ html {
     display: inline-block;
     background-color: white;
     padding-bottom: 30px;
+    min-height: 1000px;
 
     > * {
       display: inline-block;
@@ -203,6 +203,117 @@ html {
   }
 }
 
+#map {
+  position: fixed;
+  top: 30px;
+  right: 250px;
+  // right: calc(50% - #{500px / 2});
+  display: inline-block;
+  width: 520px;
+  height: 100%;
+  @include transition(right .3s, width .3s);
+  svg {
+    a {
+      position: relative;
+      display: inline-block;
+
+      text.area {
+        display: none;
+        fill: rgba(2, 3, 176, 1.00);
+      }
+
+     
+      path {
+        fill: rgba(222, 222, 222, 1.00);
+        stroke: rgba(237, 237, 237, 1.00);
+        stroke-width: 2;
+      }
+
+      &:hover {
+        text.area {
+          display: inline-block;
+        }
+        path {
+          fill: rgba(2, 3, 176, 1.00);
+        }
+      }
+      .is-active path {
+        fill: rgba(2, 3, 176, 1.00);
+      }
+    }
+
+    #position {
+      @include transition(all .3s ease-in-out);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      .icon-in {
+        animation-name: bounce;
+        transform-origin: center bottom;
+        animation-duration: 2s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        path {
+          fill: rgba(244, 197, 8, 1.00) !important;
+        }
+      }
+    }
+  }
+}
+
+.emoji-block {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background-color: white;
+  border: 1px solid rgba(208, 208, 208, 1.00);
+  padding: 30px;
+  // border-bottom: none;
+  @include border-radius(10px);
+  // @include border-top-right-radius(10px);
+  // @include border-top-left-radius(10px);
+  > * {
+    display: inline-block;
+    width: 100%;
+    color: rgba(31, 32, 32, 1.00);
+  }
+  h3 {
+    margin: 0 auto;
+  }
+
+  b {
+    font-size: 12px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+  }
+
+  .emoji {
+    margin-top: 30px;
+    @include clearfix();
+
+    > * {
+      display: inline-block;
+      float: left;
+    }
+
+    i {
+      width: 62px;
+      height: 62px;
+      border: 1px solid rgba(219, 219, 219, 1.00);
+      &:before {
+        line-height: 62px;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      + i {
+        margin-left: 15px;
+      }
+
+      @include border-radius(5px);
+    }
+  }
+}
 
 
 
