@@ -37,11 +37,13 @@ html {
     float: left;
   }
   .left-block {
+    position: relative;
     display: inline-block;
     width: 600px;
     min-height: 1000px;
     float: left;
     background-color: #fafafa;
+    z-index: 2;
     @include box-shadow(0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14));
 
     .header-tab-block {
@@ -438,7 +440,7 @@ html {
     height: 100%;
     width: calc(100% - 600px);
     overflow: hidden;
-
+    z-index: 1;
     > div {
       display: inline-block;
       height: 100%;

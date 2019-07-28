@@ -9,7 +9,7 @@ html body::selection { color: white; background-color: #78baff; }
 #main { *zoom: 1; }
 #main:after { display: table; content: ""; line-height: 0; clear: both; }
 #main > * { display: inline-block; float: left; }
-#main .left-block { display: inline-block; width: 600px; min-height: 1000px; float: left; background-color: #fafafa; -moz-box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14); -webkit-box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14); box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14); }
+#main .left-block { position: relative; display: inline-block; width: 600px; min-height: 1000px; float: left; background-color: #fafafa; z-index: 2; -moz-box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14); -webkit-box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14); box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14); }
 #main .left-block .header-tab-block { display: inline-block; width: 100%; height: 100px; padding: 0 35px; border-bottom: 1px solid #dbdbdb; *zoom: 1; }
 #main .left-block .header-tab-block:after { display: table; content: ""; line-height: 0; clear: both; }
 #main .left-block .header-tab-block > * { display: inline-block; float: left; height: 100%; }
@@ -74,5 +74,5 @@ html body::selection { color: white; background-color: #78baff; }
 #main .left-block .location .location-block .info { display: inline-block; font-size: 15.6px; letter-spacing: 0.4px; }
 #main .left-block .location .location-block .info div { line-height: 40px; }
 #main .left-block .location .location-block .info div:before { display: inline-block; font-size: 20px; line-height: 40px; margin-right: 10px; font-weight: normal; color: rgba(0, 0, 0, 0.54); }
-#main #map-article { position: fixed; top: 0; right: 0; height: 100%; width: calc(100% - 600px); overflow: hidden; }
+#main #map-article { position: fixed; top: 0; right: 0; height: 100%; width: calc(100% - 600px); overflow: hidden; z-index: 1; }
 #main #map-article > div { display: inline-block; height: 100%; width: 100%; }
