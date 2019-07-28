@@ -22,7 +22,7 @@ html {
     color: rgba(90, 90, 90, 1.00);
     text-align: center;
     font-size: medium;
-    font-family: NotoSansCJKtc, "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+    font-family: "Noto Sans TC",  "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
     
     background-color: rgba(237, 237, 237, 1.00);
     // 文字染色，背景色、文字色
@@ -31,7 +31,11 @@ html {
 }
 
 #main {
-
+  @include clearfix();
+  > * {
+    display: inline-block;
+    float: left;
+  }
   .left-block {
     display: inline-block;
     width: 600px;
@@ -65,7 +69,7 @@ html {
         line-height: 100px;
         text-decoration: none;
         font-weight: bold;
-        
+
         .logo {
           font-size: 48px;
           line-height: 100px;
@@ -253,6 +257,8 @@ html {
         h1 {
           font-size: 23.4px;
           margin-top: 10px;
+          letter-spacing: 1.5px;
+          color: rgba(0, 0, 0, 0.87);
         }
         .author {
           height: 36px;
@@ -421,6 +427,22 @@ html {
         }
         
       }
+    }
+  }
+
+  #map-article {
+    position: fixed;
+    top: 0;
+    right: 0;
+    // height:500px;
+    height: 100%;
+    width: calc(100% - 600px);
+    overflow: hidden;
+
+    > div {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
     }
   }
 }
