@@ -2,11 +2,11 @@
 *, *:after, *:before { vertical-align: top; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; -moz-osx-font-smoothing: subpixel-antialiased; -webkit-font-smoothing: subpixel-antialiased; -moz-font-smoothing: subpixel-antialiased; -ms-font-smoothing: subpixel-antialiased; -o-font-smoothing: subpixel-antialiased; }
 
 html { position: relative; }
-html body { position: relative; display: inline-block; width: 100%; margin: 0; padding: 0; color: #5a5a5a; text-align: center; font-size: medium; font-family: "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif; background-color: #ededed; }
+html body { position: relative; display: inline-block; width: 100%; margin: 0; padding: 0; color: #5a5a5a; text-align: center; font-size: medium; font-family: NotoSansCJKtc, "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif; background-color: #fafafa; }
 html body::-moz-selection { color: white; background-color: #78baff; }
 html body::selection { color: white; background-color: #78baff; }
 
-#main { width: 100%; max-width: 1300px; }
+#main { width: 100%; max-width: 1300px; background-color: #fafafa; }
 #main .tag-block { display: inline-block; width: 100%; padding: 6px 100px; border-bottom: 1px solid #dbdbdb; *zoom: 1; }
 @media screen and (max-width: 949px) and (min-width: 665px) { #main .tag-block { padding: 6px 30px; } }
 @media screen and (max-width: 665px) and (min-width: 499px) { #main .tag-block { padding: 6px 35px; } }

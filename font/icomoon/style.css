@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?d7qyhl');
-  src:  url('fonts/icomoon.eot?d7qyhl#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?d7qyhl') format('truetype'),
-    url('fonts/icomoon.woff?d7qyhl') format('woff'),
-    url('fonts/icomoon.svg?d7qyhl#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?duc996');
+  src:  url('fonts/icomoon.eot?duc996#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?duc996') format('truetype'),
+    url('fonts/icomoon.woff?duc996') format('woff'),
+    url('fonts/icomoon.svg?duc996#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,75 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-phone:before {
+  content: "\e922";
+}
+.icon-water:before {
+  content: "\e91d";
+}
+.icon-pencil:before {
+  content: "\e907";
+}
+.icon-search:before {
+  content: "\e91f";
+}
+.icon-arrow-right:before {
+  content: "\e911";
+}
+.icon-search1:before {
+  content: "\e902";
+}
+.icon-plus:before {
+  content: "\e906";
+}
+.icon-edit:before {
+  content: "\e901";
+}
+.icon-clouds:before {
+  content: "\e909";
+}
+.icon-cloud-moon-raindrops:before {
+  content: "\e90a";
+}
+.icon-cloud-sun-raindrops:before {
+  content: "\e90b";
+}
+.icon-cloud-sun-lightning:before {
+  content: "\e90c";
+}
+.icon-cloud-moon-rain:before {
+  content: "\e910";
+}
+.icon-cloud-moon:before {
+  content: "\e912";
+}
+.icon-cloud-wind:before {
+  content: "\e913";
+}
+.icon-cloud-lightning:before {
+  content: "\e914";
+}
+.icon-cloud-sun:before {
+  content: "\e916";
+}
+.icon-cloud-fog:before {
+  content: "\e917";
+}
+.icon-cloud-snow1:before {
+  content: "\e919";
+}
+.icon-cloud-rain:before {
+  content: "\e91a";
+}
+.icon-cloud:before {
+  content: "\e91b";
+}
+.icon-mode_edit:before {
+  content: "\e908";
+}
+.icon-marker:before {
+  content: "\e921";
+}
 .icon-sun:before {
   content: "\e918";
 }
@@ -105,68 +174,11 @@
 .icon-circle-right:before {
   content: "\ea42";
 }
-.icon-clouds:before {
-  content: "\e909";
+.icon-star-full:before {
+  content: "\e9d9";
 }
-.icon-cloud-moon-raindrops:before {
-  content: "\e90a";
-}
-.icon-cloud-sun-raindrops:before {
-  content: "\e90b";
-}
-.icon-cloud-sun-lightning:before {
-  content: "\e90c";
-}
-.icon-cloud-moon-rain:before {
-  content: "\e910";
-}
-.icon-cloud-moon:before {
-  content: "\e912";
-}
-.icon-cloud-wind:before {
-  content: "\e913";
-}
-.icon-cloud-lightning:before {
-  content: "\e914";
-}
-.icon-cloud-sun:before {
-  content: "\e916";
-}
-.icon-cloud-fog:before {
-  content: "\e917";
-}
-.icon-cloud-snow1:before {
-  content: "\e919";
-}
-.icon-cloud-rain:before {
-  content: "\e91a";
-}
-.icon-cloud:before {
-  content: "\e91b";
-}
-.icon-water:before {
-  content: "\e91d";
-}
-.icon-pencil:before {
-  content: "\e907";
-}
-.icon-search:before {
-  content: "\e91f";
-}
-.icon-arrow-right:before {
-  content: "\e911";
-}
-.icon-search1:before {
-  content: "\e902";
-}
-.icon-mode_edit:before {
-  content: "\e908";
-}
-.icon-plus:before {
-  content: "\e906";
-}
-.icon-edit:before {
-  content: "\e901";
+.icon-arrow-left:before {
+  content: "\ea40";
 }
 .icon-sun-o:before {
   content: "\e920";
