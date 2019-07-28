@@ -20,4 +20,7 @@ $(function() {
     $('.location').toggleClass('active');
   });
 
+  setTimeout(function() {
+    $('.loading').removeClass('active');
+  }, 1000);
 });

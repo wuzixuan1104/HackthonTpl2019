@@ -12,11 +12,11 @@ html body::selection { color: white; background-color: #78baff; }
 @media screen and (max-width: 949px) and (min-width: 0) { #main .header-block { height: auto; padding: 0 15px; } }
 #main .header-block > * { display: inline-block; float: left; height: 100%; }
 @media screen and (max-width: 949px) and (min-width: 0) { #main .header-block > * { display: block; float: none; } }
-#main .header-block h1 { width: 160px; margin: 0 auto; font-size: 20px; color: #1f2020; text-align: left; line-height: 100px; }
-#main .header-block h1 .logo { font-size: 48px; line-height: 100px; margin-right: 5px; }
-@media screen and (max-width: 949px) and (min-width: 0) { #main .header-block h1 { line-height: 70px; text-align: left; margin: 5px 0; }
-  #main .header-block h1 .logo { line-height: 70px; }
-  #main .header-block h1 .logo:before { font-size: 15px; } }
+#main .header-block > a { width: 160px; margin: 0 auto; font-size: 20px; color: #1f2020; text-align: left; line-height: 100px; text-decoration: none; font-weight: bold; }
+#main .header-block > a .logo { font-size: 48px; line-height: 100px; margin-right: 5px; }
+@media screen and (max-width: 949px) and (min-width: 0) { #main .header-block > a { line-height: 70px; text-align: left; margin: 5px 0; }
+  #main .header-block > a .logo { line-height: 70px; }
+  #main .header-block > a .logo:before { font-size: 15px; } }
 #main .header-block .search-block { width: calc(100% - 160px); }
 @media screen and (max-width: 949px) and (min-width: 0) { #main .header-block .search-block { width: 100%; } }
 #main .header-block .search-block .search-input { position: relative; display: inline-block; width: 100%; height: 60px; float: left; text-align: left; background-color: #e8e8e8; margin-top: calc(50px - 30px); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
@@ -58,12 +58,13 @@ html body::selection { color: white; background-color: #78baff; }
 #main .header-block .search-block .search-input .tag-list > * { display: inline-block; float: left; }
 #main .header-block .search-block .search-input .tag-list:empty:before { content: '啊喔！找不到任何關鍵字...'; display: inline-block; color: #969696; padding: 8px; font-size: 12px; }
 #main .header-block .search-block .search-input .tag-list a { margin: 5px; text-decoration: none; padding: 5px 10px; width: auto; min-width: 100px; border: 1px solid #e8e8e8; background-color: white; color: #525252; font-size: 12px; text-align: center; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
-#main .header-block .search-block .search-input .tag-list a:before { display: inline-block; content: '#'; line-height: 17px; margin-right: 2px; }
+#main .header-block .search-block .search-input .tag-list a:before { display: inline-block; content: '#'; color: #a2a2a2; line-height: 18px; margin-right: 2px; }
 #main .header-block .search-block .search-input .tag-list a:hover { background-color: #f5c506; }
 #main .header-block .search-block .search-input:hover { background-color: #fafafa; -moz-box-shadow: 0 0 7px #cecece; -webkit-box-shadow: 0 0 7px #cecece; box-shadow: 0 0 7px #cecece; }
 #main .header-block .search-block .search-input:hover .tag-list { display: inline-block; }
 
 .loading { position: fixed; display: none !important; width: 100% !important; height: 100%; top: 0; left: 0; background: rgba(255, 255, 255, 0.75); z-index: 10; }
+.loading.active { display: inline-block !important; }
 .loading span { position: absolute; left: calc(50% - 50px/2); top: calc(50% - 50px/2); display: inline-block; width: 50px !important; height: 50px; line-height: 100px; border-radius: 50%; border: 4px solid  #f1f1f1; border-top: 4px solid #0e02b0; -moz-animation: rotate 1.5s linear infinite; -webkit-animation: rotate 1.5s linear infinite; animation: rotate 1.5s linear infinite; }
 
 @-moz-keyframes rotate { 0% { -moz-transform: rotate(0); transform: rotate(0); }

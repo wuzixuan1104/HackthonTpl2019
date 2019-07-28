@@ -56,14 +56,15 @@ html {
       }
     }
 
-    h1 {
+    > a {
       width: 160px;
       margin: 0 auto;
       font-size: 20px;
       color: rgba(31, 32, 32, 1.00);
       text-align: left;
       line-height: 100px;
-
+      text-decoration: none;
+      font-weight: bold;
       .logo {
         font-size: 48px;
         line-height: 100px;
@@ -192,7 +193,8 @@ html {
             &:before {
               display: inline-block;
               content: '#';
-              line-height: 17px;
+              color: rgba(162, 162, 162, 1.00);
+              line-height: 18px;
               margin-right: 2px;
             }
 
@@ -230,6 +232,10 @@ html {
   background: rgba(255, 255, 255, 0.75);
   z-index: 10;
   
+  &.active {
+    display: inline-block !important;
+  }
+
   span {
     position: absolute;
     left: calc(50% - #{50px / 2});
